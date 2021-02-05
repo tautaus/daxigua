@@ -149,7 +149,8 @@
         }
 
         if(true){
-            window.difficulty = [0, 5];
+            window.difficulty = [0, 5, 0.3];
+            window.predict = false;
             multiplescore = 1;
             function changeDifficulty(ele, diff) {
               $('[name=difficulty]').css('background-color', '');
@@ -161,6 +162,12 @@
               $('[name=fanbei]').css('background-color', '');
               $(ele).css('background-color', '#1E9FFF');
               multiplescore = diff;
+            }
+
+            function predict_next(ele){
+              $('[name=fanbei]').css('background-color', '');
+              $(ele).css('background-color', '#1E9FFF');
+              window.predict = true;
             }
 
         }
@@ -179,12 +186,14 @@
       , moveType: 1 //拖拽模式，0或者1
       , content:
          '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: #393D49; color: #fff;"><h4>模式选择</h4>'
-        + '<button name="difficulty" onclick="changeDifficulty(this,[0,10])">随缘Play</button><br>'
-        + '<button name="difficulty" onclick="changeDifficulty(this,[0,0])">圣雄肝帝</button><br>'
-        + '<button name="difficulty" style="background-color:#1E9FFF" onclick="changeDifficulty(this,[0,5])">原汁原味</button><br>'
-        + '<button name="difficulty" onclick="changeDifficulty(this,[5,5])">作弊模式</button><br>'
-        + '<button name="difficulty" onclick="changeDifficulty(this,[2,7])">去除小瓜</button><br>'
-        + '<button name="difficulty" onclick="changeDifficulty(this,[9,9])">暴力吃瓜</button><br>'  
+        + '<button name="difficulty" onclick="changeDifficulty(this,[0,10, 0.3])">随缘Play</button><br>'
+        + '<button name="difficulty" onclick="changeDifficulty(this,[0,0, 0.3])">圣雄肝帝</button><br>'
+        + '<button name="difficulty" style="background-color:#1E9FFF" onclick="changeDifficulty(this,[0,5, 0.3])">原汁原味</button><br>'
+        + '<button name="difficulty" onclick="changeDifficulty(this,[5,5, 0.3])">作弊模式</button><br>'
+        + '<button name="difficulty" onclick="changeDifficulty(this,[2,7, 0.3])">去除小瓜</button><br>'
+        + '<button name="difficulty" onclick="changeDifficulty(this,[9,9, 0.3])">暴力吃瓜</button><br>'  
+        + '<button name="difficulty" onclick="changeDifficulty(this,[0,5, 0.8])">Q弹模式</button><br>'  
+        + '<button name="difficulty" onclick="predict_next(this)">先知模式</button><br>'  
         + '</div>'
         + '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: #393D49; color: #fff;"><h4>分数选择</h4>'
         + '<button name="fanbei" onclick="multipleScore(this,2)">两倍暴击</button><br>'
